@@ -1,4 +1,4 @@
-name: Python CI by ${{ github.actor }} - ${{ github.sha }}
+name: Python CI 
 
 on:
   push:
@@ -19,6 +19,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Show GitHub Actor
+        run: |
+          echo "Triggered by actor and sha: ${{ github.actor }} - ${{ github.sha }}"
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
